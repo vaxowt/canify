@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canify — A modern, lightweight CAN / CANopen analyzer</title>
+  <meta name="description" content="Canify is a free (as in beer) desktop CAN bus analyzer for Windows and Linux: plug-and-play SLCAN adapters, DBC decoding, live plotting, frame transmission, sequence record & replay, and all-in-one CANopen debugging (NMT / SDO / PDO / CiA 402). Fully local, no telemetry." />
+  <meta property="og:title" content="Canify — A modern, lightweight CAN / CANopen analyzer" />
+  <meta property="og:description" content="Plug in a $15 SLCAN adapter and get bus monitoring, DBC decoding, live plotting and CANopen debugging. Free download, runs entirely locally." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vaxowt.github.io/canify/en/" />
+  <meta property="og:image" content="https://vaxowt.github.io/canify/img/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="../">
+        <img src="../img/logo.svg" alt="Canify logo" />Canify
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#canopen">CANopen</a>
+        <a href="#gallery">Screenshots</a>
+        <a href="#download">Download</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-right">
+        <span class="lang-switch"><a href="../">中文</a> · <a class="current" href="./">EN</a></span>
+        <a class="btn btn-ghost" href="https://github.com/vaxowt/canify" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-primary" href="#download">Free download</a>
+        <button class="nav-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge">Free to use · Fully local · Windows / Linux</span>
+        <h1>A modern, lightweight<br /><span class="accent">CAN / CANopen analyzer</span></h1>
+        <p class="lead">Plug in a $15 SLCAN adapter and get live bus monitoring, DBC signal decoding, real-time plotting, frame transmission, and full CANopen node debugging. One-click install — no Python, and all data stays on your machine.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#download">
+            <svg viewBox="0 0 24 24"><path d="M12 3v10m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Free download
+          </a>
+          <a class="btn btn-ghost btn-lg" href="https://github.com/vaxowt/canify/releases/latest" target="_blank" rel="noopener">View Releases</a>
+        </div>
+        <p class="hero-meta">Windows 10/11 x64 · Linux x86_64 · installer / portable / AppImage</p>
+        <div class="hero-shot">
+          <div class="window">
+            <div class="window-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="title">Canify — virtual bus demo</span></div>
+            <img src="../img/hero-dark.png" alt="Canify main window: live CAN frame table with expanded DBC decoded signals" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Built for efficient debugging</h2>
+          <p>From bus monitoring to servo commissioning, Canify packs the everyday toolkit into one lightweight native app.</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="12" width="8" height="9" rx="2"/><rect x="3" y="15" width="8" height="6" rx="2"/></svg></div>
+            <h3>Dockable modern UI</h3>
+            <p>Freely split and rearrange the display area and control dock; layouts are remembered. Dark / light themes and a Chinese / English UI, one click away.</p>
+          </div>
+          <div class="feature">
+            <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 19c2-8 5-12 8-12s6 4 8 12" stroke-linecap="round"/><path d="M3 21h18" stroke-linecap="round"/></svg></div>
+            <h3>DBC decoding + live plotting</h3>
+            <p>Import a DBC and expand physical signal values right in the frame table; tick signals to plot them — LTTB downsampling keeps busy buses smooth.</p>
+          </div>
+          <div class="feature">
+            <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M5 5l2 2m10 10 2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
+            <h3>CANopen, all in one place</h3>
+            <p>Node table, SDO log, EMCY, object dictionary, PDO configuration, and CiA 402 drive control — passive decoding and active debugging together.</p>
+          </div>
+          <div class="feature">
+            <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round"/></svg></div>
+            <h3>Sequence record & replay</h3>
+            <p>Record every frame the app sends (including SDO / NMT operations) and replay it with the original timing — reproducing issues has never been easier.</p>
+          </div>
+          <div class="feature">
+            <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 5h16M7 12h10m-7 7h4" stroke-linecap="round"/></svg></div>
+            <h3>Powerful live filtering</h3>
+            <p>Hex ID lists / ranges combined with data-byte conditions over AND / OR — lock onto the messages you care about in noisy traffic.</p>
+          </div>
+          <div class="feature">
+            <div class="icon"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" stroke-linejoin="round"/></svg></div>
+            <h3>Lightweight · fully local</h3>
+            <p>Built natively with Tauri 2 + Rust: small installers, fast startup — no cloud, no telemetry, no outbound requests.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CANopen spotlight -->
+    <section id="canopen">
+      <div class="container spotlight">
+        <div>
+          <h2>CANopen debugging,<br />all in one place</h2>
+          <p class="desc">Whether you are passively observing an unknown bus or commissioning a CiA 402 servo drive, Canify puts the complete toolchain in a single panel.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Automatic node discovery: NMT state and heartbeat interval at a glance</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>SDO transaction log: requests and responses auto-paired, ABORT codes explained</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Import an EDS to browse the object dictionary: single reads/writes or read-all</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>PDO configuration editor: mappings and comm params applied via the standard procedure</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>CiA 402 control: state machine visualization, enable sequence, motion parameters, first-use safety confirm</li>
+          </ul>
+        </div>
+        <div class="shot">
+          <img src="../img/canopen-nodes.png" alt="Canify's CANopen panel: node table, NMT control, SDO log and EMCY" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>A tour of the interface</h2>
+          <p>Click any screenshot to zoom in.</p>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="../img/plot-measure.png" alt="Live plotting and crosshair measurement" />
+            <figcaption>Live plotting & crosshair measurement (Δt / Δv, sample snapping)</figcaption>
+          </figure>
+          <figure>
+            <img src="../img/canopen-402.png" alt="CiA 402 drive control" />
+            <figcaption>CiA 402 drive control (state machine + enable sequence + motion params)</figcaption>
+          </figure>
+          <figure>
+            <img src="../img/canopen-od.png" alt="EDS object dictionary browser" />
+            <figcaption>EDS object dictionary browser (read-all included)</figcaption>
+          </figure>
+          <figure>
+            <img src="../img/canopen-pdo.png" alt="PDO configuration editor" />
+            <figcaption>PDO configuration editor (mappings + comm params + read-back)</figcaption>
+          </figure>
+          <figure>
+            <img src="../img/send-panel.png" alt="Multi-frame transmit panel" />
+            <figcaption>Multi-frame transmit (single / periodic send)</figcaption>
+          </figure>
+          <figure>
+            <img src="../img/sequence-replay.png" alt="Sequence record and replay" />
+            <figcaption>Sequence record & replay (re-sends with original timing)</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hardware -->
+    <section id="hardware">
+      <div class="container">
+        <div class="section-head">
+          <h2>Supported hardware</h2>
+          <p>Standard slcan protocol — the most common (and most affordable) class of CAN adapters works out of the box.</p>
+        </div>
+        <div class="hw-wrap">
+          <ul class="hw-list">
+            <li><span class="name">CANable / MKS CANable / cantact</span><span class="note">SLCAN firmware · ~$15</span></li>
+            <li><span class="name">Arduino + CAN shield</span><span class="note">MCP2515 / MCP2518 · SLCAN firmware</span></li>
+            <li><span class="name">Any serial device speaking slcan</span><span class="note">Linux /dev/ttyUSB* · Windows COM</span></li>
+            <li><span class="name">Virtual bus (built-in)</span><span class="note">Loopback mode · try everything without hardware</span></li>
+          </ul>
+          <div class="hw-note">
+            <b>No hardware?</b> The built-in virtual bus runs in loopback mode, so you can walk through the frame table, DBC decoding, plotting, and the CANopen panel with zero devices — up and running five minutes after download.
+            <br /><br /><b>SocketCAN</b> (Linux can0) is on the roadmap — stay tuned.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download -->
+    <section id="download" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Free download</h2>
+          <p>No registration, no feature limits, no ads. All installers are published on GitHub Releases.</p>
+        </div>
+        <div class="dl-grid">
+          <div class="dl-card">
+            <span class="os">
+              <svg viewBox="0 0 24 24"><path d="M3 5.5 10.5 4.4v6.9H3V5.5zm0 13 7.5 1.1v-6.8H3v5.7zm8.7 1.2L21 21V12.7h-9.3v7zM11.7 3v7.3H21V3l-9.3 1.3v1.7z"/></svg>
+              Windows 10/11 x64
+            </span>
+            <span class="files">Installer <code>x64-setup.exe</code> · Portable <code>x64Portable.zip</code></span>
+            <a class="btn btn-primary" href="https://github.com/vaxowt/canify/releases/latest" target="_blank" rel="noopener">Download for Windows</a>
+            <span class="files">Requires the WebView2 runtime (bundled with Win10/11)</span>
+          </div>
+          <div class="dl-card">
+            <span class="os">
+              <svg viewBox="0 0 24 24"><path d="M12 2c.6 2 .1 3.4-.8 4.6-.9 1.1-2.2 2-2.9 3.5-.8 1.6-.5 3.1.2 4.4-.9.5-1.6 1.4-2 2.6-.5 1.7.1 3.3 1 4.9h.9c-.4-1-.5-1.7-.3-2.4.2-.8.7-1.3 1.5-1.7.6 1 1.5 1.8 2.7 2.4l.4.7h.9l.3-.7c1.2-.5 2.2-1.3 2.9-2.3.9.4 1.4 1 1.6 1.7.2.7.1 1.5-.3 2.3h.9c1-1.6 1.5-3.2 1-4.9-.3-1.2-1-2.1-2-2.6.8-1.3 1-2.9.2-4.4-.7-1.5-2-2.4-2.9-3.5-.9-1.2-1.4-2.6-.8-4.6h-1zm.5 3.7c.4 1.1 1 2 1.8 2.9-1.4-.4-2.7-.4-4.1-.1.8-.9 1.6-1.8 2-2.8h.3z"/></svg>
+              Linux x86_64
+            </span>
+            <span class="files"><code>.deb</code> · <code>.rpm</code> · <code>.AppImage</code> (no FUSE2 required)</span>
+            <a class="btn btn-primary" href="https://github.com/vaxowt/canify/releases/latest" target="_blank" rel="noopener">Download for Linux</a>
+            <span class="files">Serial permission setup in the README quick start</span>
+          </div>
+        </div>
+        <p class="dl-all">All versions and packages: <a href="https://github.com/vaxowt/canify/releases" target="_blank" rel="noopener">GitHub Releases</a> · Feedback: <a href="https://github.com/vaxowt/canify/issues" target="_blank" rel="noopener">Issues</a></p>
+      </div>
+    </section>
+
+    <!-- Comparison -->
+    <section id="compare">
+      <div class="container">
+        <div class="section-head">
+          <h2>How it compares</h2>
+          <p>Every tool has its own focus — here are the facts only.</p>
+        </div>
+        <div class="compare-wrap">
+          <table class="compare">
+            <thead>
+              <tr><th>Tool</th><th>Platforms</th><th>Hardware</th><th>DBC decode + plot</th><th>Active CANopen tools</th><th>Sequence record / replay</th><th>License</th></tr>
+            </thead>
+            <tbody>
+              <tr class="canify-col">
+                <td>Canify</td>
+                <td>Windows · Linux</td>
+                <td>SLCAN + virtual bus</td>
+                <td><span class="yes">✓</span></td>
+                <td><span class="yes">✓</span> incl. PDO config & CiA 402</td>
+                <td><span class="yes">✓</span> records every app-sent frame</td>
+                <td>Freeware (closed source)</td>
+              </tr>
+              <tr>
+                <td>CANgaroo</td>
+                <td>Windows · Linux</td>
+                <td>Broad (Vector / PEAK / Kvaser / gs_usb, …)</td>
+                <td><span class="yes">✓</span></td>
+                <td><span class="no">—</span></td>
+                <td><span class="part">Partial *</span> log-file replay</td>
+                <td>Open source (GPL)</td>
+              </tr>
+              <tr>
+                <td>CANviz</td>
+                <td>Windows · macOS · Linux</td>
+                <td>gs_usb / SLCAN / SocketCAN</td>
+                <td><span class="yes">✓</span></td>
+                <td><span class="part">Partial *</span> quick SDO / NMT / 402 buttons</td>
+                <td><span class="no">—</span></td>
+                <td>Open source (MIT)</td>
+              </tr>
+              <tr>
+                <td>PCAN-View</td>
+                <td>Windows</td>
+                <td>PEAK hardware only</td>
+                <td><span class="part">Partial</span> .sym symbols</td>
+                <td><span class="no">—</span></td>
+                <td><span class="no">—</span></td>
+                <td>Freeware (closed source)</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="compare-note">* CANviz offers expedited SDO, NMT, and CiA 402 quick buttons but has no PDO configuration editor or segmented SDO; CANgaroo replays ASC / candump / PCAP log files, while Canify's sequence feature directly records every frame the app sends (including CANopen operations) and replays them with the original timing. Compiled from each project's public documentation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>FAQ</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Is Canify free?</summary>
+            <p>Yes — free to use: no registration, no feature limits, no ads.</p>
+          </details>
+          <details>
+            <summary>Does it support CAN FD?</summary>
+            <p>Not yet; CAN FD is on the roadmap. The current frame data model already reserves payload length for FD.</p>
+          </details>
+          <details>
+            <summary>Is there a macOS build?</summary>
+            <p>Not yet — it is on the roadmap.</p>
+          </details>
+          <details>
+            <summary>Is any data uploaded?</summary>
+            <p>No. Canify runs entirely locally: no cloud, no telemetry, no outbound requests. Bus data lives only in your machine's memory.</p>
+          </details>
+          <details>
+            <summary>Linux says "permission denied" when opening the serial port?</summary>
+            <p>Add yourself to the <code>dialout</code> (Debian/Ubuntu) or <code>uucp</code> (Arch) group, then log out and back in: <code>sudo usermod -aG dialout $USER</code></p>
+          </details>
+          <details>
+            <summary>Is it open source?</summary>
+            <p>Canify is freeware but closed source, distributed as binary installers. Feedback and feature requests are welcome on GitHub Issues.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section id="roadmap">
+      <div class="container">
+        <div class="section-head">
+          <h2>Roadmap</h2>
+        </div>
+        <ul class="roadmap">
+          <li>SocketCAN driver (native Linux can0)</li>
+          <li>CAN FD support (frame model already reserved)</li>
+          <li>More log formats (Vector .asc, PCAP, candump)</li>
+          <li>Multi-channel connections</li>
+          <li>macOS build</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="left">© 2026 vaxowt · Canify</span>
+        <div class="right">
+          <a href="https://github.com/vaxowt/canify" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/vaxowt/canify/releases/latest" target="_blank" rel="noopener">Download</a>
+          <a href="https://github.com/vaxowt/canify/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
+        </div>
+      </div>
+      <p class="disclaimer">Canify is proprietary freeware provided "as is", without warranty of any kind. Use of the Software with real vehicles, machinery, or industrial equipment is entirely at your own risk. Canify is not affiliated with or endorsed by any third-party products mentioned here.</p>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox"><img alt="" /></dialog>
+  <script src="../assets/main.js"></script>
+</body>
+</html>

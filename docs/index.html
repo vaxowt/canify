@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canify — 现代、轻量的 CAN / CANopen 上位机</title>
+  <meta name="description" content="Canify 是一款免费但闭源的桌面 CAN 总线分析仪：SLCAN 适配器即插即用，支持 DBC 信号解码、实时绘图、报文发送、序列录制回放与 CANopen（NMT/SDO/PDO/CiA 402）一站式调试。Windows 与 Linux 免费下载。" />
+  <meta property="og:title" content="Canify — 现代、轻量的 CAN / CANopen 上位机" />
+  <meta property="og:description" content="连接一块十几块钱的 SLCAN 适配器，即可完成总线监控、DBC 解码、实时绘图与 CANopen 调试。免费下载，纯本地运行。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vaxowt.github.io/canify/" />
+  <meta property="og:image" content="https://vaxowt.github.io/canify/img/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="./">
+        <img src="./img/logo.svg" alt="Canify logo" />Canify
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#features">特性</a>
+        <a href="#canopen">CANopen</a>
+        <a href="#gallery">截图</a>
+        <a href="#download">下载</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-right">
+        <span class="lang-switch"><a class="current" href="./">中文</a> · <a href="./en/">EN</a></span>
+        <a class="btn btn-ghost" href="https://github.com/vaxowt/canify" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-primary" href="#download">免费下载</a>
+        <button class="nav-toggle" aria-label="打开菜单">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge">免费使用 · 纯本地运行 · Windows / Linux</span>
+        <h1>现代、轻量的<br /><span class="accent">CAN / CANopen 上位机</span></h1>
+        <p class="lead">连接一块十几块钱的 SLCAN 适配器，即可完成总线监控、DBC 信号解码、实时绘图、报文发送与 CANopen 节点调试。安装即用，无需 Python，数据只留在本机。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#download">
+            <svg viewBox="0 0 24 24"><path d="M12 3v10m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            免费下载
+          </a>
+          <a class="btn btn-ghost btn-lg" href="https://github.com/vaxowt/canify/releases/latest" target="_blank" rel="noopener">查看 Releases</a>
+        </div>
+        <p class="hero-meta">Windows 10/11 x64 · Linux x86_64 · 安装包 / 免安装版 / AppImage</p>
+        <div class="hero-shot">
+          <div class="window">
+            <div class="window-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="title">Canify — 虚拟总线演示</span></div>
+            <img src="./img/hero-dark.png" alt="Canify 主界面：帧表实时显示 CAN 报文并展开 DBC 解码信号" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 特性 -->
+    <section id="features" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>为高效调试而生</h2>
+          <p>从总线监控到伺服调试，Canify 把常用工具装进一个轻量原生应用。</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="12" width="8" height="9" rx="2"/><rect x="3" y="15" width="8" height="6" rx="2"/></svg></div>
+            <h3>可停靠的现代界面</h3>
+            <p>显示区与控制区自由分屏、拖拽重组，布局自动记忆；深色 / 浅色主题与中英界面一键切换。</p>
+          </div>
+          <div class="feature">
+            <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 19c2-8 5-12 8-12s6 4 8 12" stroke-linecap="round"/><path d="M3 21h18" stroke-linecap="round"/></svg></div>
+            <h3>DBC 解码 + 实时绘图</h3>
+            <p>导入 DBC 后帧表内直接展开物理值信号；勾选即绘图，LTTB 降采样让高负载总线依旧流畅。</p>
+          </div>
+          <div class="feature">
+            <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M5 5l2 2m10 10 2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
+            <h3>CANopen 一站式</h3>
+            <p>节点表、SDO 日志、EMCY、对象字典、PDO 配置、CiA 402 伺服控制——被动解码与主动调试一体。</p>
+          </div>
+          <div class="feature">
+            <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round"/></svg></div>
+            <h3>序列录制与回放</h3>
+            <p>录制应用内发出的所有帧（含 SDO / NMT 操作），按原时序回放，复现问题或自动化测试从未这么简单。</p>
+          </div>
+          <div class="feature">
+            <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 5h16M7 12h10m-7 7h4" stroke-linecap="round"/></svg></div>
+            <h3>强大的实时过滤</h3>
+            <p>ID 列表 / 区间与数据字节条件多路组合（AND / OR），在嘈杂总线中一眼锁定目标报文。</p>
+          </div>
+          <div class="feature">
+            <div class="icon"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" stroke-linejoin="round"/></svg></div>
+            <h3>轻量 · 纯本地</h3>
+            <p>Tauri 2 + Rust 原生构建，安装包小、启动快；无云端、无遥测、无外联请求。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CANopen 专题 -->
+    <section id="canopen">
+      <div class="container spotlight">
+        <div>
+          <h2>CANopen 调试<br />在这里一站式完成</h2>
+          <p class="desc">无论是接入一条陌生总线做被动观察，还是调试一台 CiA 402 伺服驱动器，Canify 都把完整工具链放在同一个面板里。</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>节点表自动识别：NMT 状态、心跳间隔一目了然</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>SDO 事务日志：请求 / 响应自动配对，ABORT 原因直接翻译</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>导入 EDS 浏览对象字典：单点读写、一键读取全部</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>PDO 配置编辑器：按规范流程一键下发映射与通信参数</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>CiA 402 控制：状态机可视化 + 使能序列 + 运动参数，首用安全确认</li>
+          </ul>
+        </div>
+        <div class="shot">
+          <img src="./img/canopen-nodes.png" alt="Canify 的 CANopen 面板：节点表、NMT 控制、SDO 日志与 EMCY" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 截图画廊 -->
+    <section id="gallery" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>界面一览</h2>
+          <p>点击任意截图可放大查看。</p>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="./img/plot-measure.png" alt="实时绘图与十字测量" />
+            <figcaption>实时绘图与十字测量（Δt / Δv、样本吸附）</figcaption>
+          </figure>
+          <figure>
+            <img src="./img/canopen-402.png" alt="CiA 402 伺服控制" />
+            <figcaption>CiA 402 伺服控制（状态机 + 使能序列 + 运动参数）</figcaption>
+          </figure>
+          <figure>
+            <img src="./img/canopen-od.png" alt="EDS 对象字典浏览器" />
+            <figcaption>EDS 对象字典浏览器（一键读取全部）</figcaption>
+          </figure>
+          <figure>
+            <img src="./img/canopen-pdo.png" alt="PDO 配置编辑器" />
+            <figcaption>PDO 配置编辑器（映射 + 通信参数 + 读回）</figcaption>
+          </figure>
+          <figure>
+            <img src="./img/send-panel.png" alt="多帧发送面板" />
+            <figcaption>多帧发送（单发 / 周期发送）</figcaption>
+          </figure>
+          <figure>
+            <img src="./img/sequence-replay.png" alt="序列录制与回放" />
+            <figcaption>序列录制与回放（按原时序重发）</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 支持硬件 -->
+    <section id="hardware">
+      <div class="container">
+        <div class="section-head">
+          <h2>支持的硬件</h2>
+          <p>标准 slcan 协议，市面上最常见、最便宜的一类 CAN 适配器开箱即用。</p>
+        </div>
+        <div class="hw-wrap">
+          <ul class="hw-list">
+            <li><span class="name">CANable / MKS CANable / cantact</span><span class="note">SLCAN 固件 · 约 ¥100 内</span></li>
+            <li><span class="name">Arduino + CAN 扩展板</span><span class="note">MCP2515 / MCP2518 · SLCAN 固件</span></li>
+            <li><span class="name">任意 slcan 协议串口设备</span><span class="note">Linux /dev/ttyUSB* · Windows COM</span></li>
+            <li><span class="name">虚拟总线（内置）</span><span class="note">回环模式 · 无硬件体验全部功能</span></li>
+          </ul>
+          <div class="hw-note">
+            <b>没有硬件？</b>内置虚拟总线以回环模式运行，无需任何设备即可体验帧表、DBC 解码、绘图与 CANopen 界面的全部流程——下载后 5 分钟内即可上手。
+            <br /><br /><b>SocketCAN（Linux can0）</b>已在路线图中，敬请期待。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 下载 -->
+    <section id="download" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>免费下载</h2>
+          <p>无需注册、无功能限制、无广告。所有安装包均发布于 GitHub Releases。</p>
+        </div>
+        <div class="dl-grid">
+          <div class="dl-card">
+            <span class="os">
+              <svg viewBox="0 0 24 24"><path d="M3 5.5 10.5 4.4v6.9H3V5.5zm0 13 7.5 1.1v-6.8H3v5.7zm8.7 1.2L21 21V12.7h-9.3v7zM11.7 3v7.3H21V3l-9.3 1.3v1.7z"/></svg>
+              Windows 10/11 x64
+            </span>
+            <span class="files">安装版 <code>x64-setup.exe</code> · 免安装绿色版 <code>x64Portable.zip</code></span>
+            <a class="btn btn-primary" href="https://github.com/vaxowt/canify/releases/latest" target="_blank" rel="noopener">下载 Windows 版</a>
+            <span class="files">需要 WebView2 运行时（Win10/11 一般自带）</span>
+          </div>
+          <div class="dl-card">
+            <span class="os">
+              <svg viewBox="0 0 24 24"><path d="M12 2c.6 2 .1 3.4-.8 4.6-.9 1.1-2.2 2-2.9 3.5-.8 1.6-.5 3.1.2 4.4-.9.5-1.6 1.4-2 2.6-.5 1.7.1 3.3 1 4.9h.9c-.4-1-.5-1.7-.3-2.4.2-.8.7-1.3 1.5-1.7.6 1 1.5 1.8 2.7 2.4l.4.7h.9l.3-.7c1.2-.5 2.2-1.3 2.9-2.3.9.4 1.4 1 1.6 1.7.2.7.1 1.5-.3 2.3h.9c1-1.6 1.5-3.2 1-4.9-.3-1.2-1-2.1-2-2.6.8-1.3 1-2.9.2-4.4-.7-1.5-2-2.4-2.9-3.5-.9-1.2-1.4-2.6-.8-4.6h-1zm.5 3.7c.4 1.1 1 2 1.8 2.9-1.4-.4-2.7-.4-4.1-.1.8-.9 1.6-1.8 2-2.8h.3z"/></svg>
+              Linux x86_64
+            </span>
+            <span class="files"><code>.deb</code> · <code>.rpm</code> · <code>.AppImage</code>（无需 FUSE2）</span>
+            <a class="btn btn-primary" href="https://github.com/vaxowt/canify/releases/latest" target="_blank" rel="noopener">下载 Linux 版</a>
+            <span class="files">串口权限设置见 README 快速上手</span>
+          </div>
+        </div>
+        <p class="dl-all">历史版本与全部安装包：<a href="https://github.com/vaxowt/canify/releases" target="_blank" rel="noopener">GitHub Releases</a> · 问题反馈：<a href="https://github.com/vaxowt/canify/issues" target="_blank" rel="noopener">Issues</a></p>
+      </div>
+    </section>
+
+    <!-- 对比 -->
+    <section id="compare">
+      <div class="container">
+        <div class="section-head">
+          <h2>与同类工具相比</h2>
+          <p>每个工具都有自己的定位，这里只陈述事实。</p>
+        </div>
+        <div class="compare-wrap">
+          <table class="compare">
+            <thead>
+              <tr><th>工具</th><th>平台</th><th>硬件支持</th><th>DBC 解码 + 绘图</th><th>CANopen 主动调试</th><th>序列录制 / 回放</th><th>授权</th></tr>
+            </thead>
+            <tbody>
+              <tr class="canify-col">
+                <td>Canify</td>
+                <td>Windows · Linux</td>
+                <td>SLCAN + 虚拟总线</td>
+                <td><span class="yes">✓</span></td>
+                <td><span class="yes">✓</span> 含 PDO 配置与 CiA 402</td>
+                <td><span class="yes">✓</span> 录制回放应用内全部发送</td>
+                <td>免费（闭源）</td>
+              </tr>
+              <tr>
+                <td>CANgaroo</td>
+                <td>Windows · Linux</td>
+                <td>广泛（Vector / PEAK / Kvaser / gs_usb 等）</td>
+                <td><span class="yes">✓</span></td>
+                <td><span class="no">—</span></td>
+                <td><span class="part">部分 *</span> 日志文件回放</td>
+                <td>开源 (GPL)</td>
+              </tr>
+              <tr>
+                <td>CANviz</td>
+                <td>Windows · macOS · Linux</td>
+                <td>gs_usb / SLCAN / SocketCAN</td>
+                <td><span class="yes">✓</span></td>
+                <td><span class="part">部分 *</span> 快捷 SDO / NMT / 402 按钮</td>
+                <td><span class="no">—</span></td>
+                <td>开源 (MIT)</td>
+              </tr>
+              <tr>
+                <td>PCAN-View</td>
+                <td>Windows</td>
+                <td>仅 PEAK 硬件</td>
+                <td><span class="part">部分</span> .sym 符号</td>
+                <td><span class="no">—</span></td>
+                <td><span class="no">—</span></td>
+                <td>免费（闭源）</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="compare-note">* CANviz 提供 expedited SDO、NMT 与 CiA 402 快捷按钮，但不包含 PDO 配置编辑器与分段 SDO；CANgaroo 支持以 ASC / candump / PCAP 日志文件回放总线数据，而 Canify 的序列功能直接录制应用内发出的每一帧（含 CANopen 操作）并按原时序回放。表格信息整理自各项目公开文档。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>常见问题</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Canify 收费吗？</summary>
+            <p>免费使用：无需注册、无功能限制、无广告。</p>
+          </details>
+          <details>
+            <summary>支持 CAN FD 吗？</summary>
+            <p>暂不支持 CAN FD 帧收发，已在路线图中；当前帧数据模型为 FD 预留了载荷长度。</p>
+          </details>
+          <details>
+            <summary>支持 macOS 吗？</summary>
+            <p>暂未提供 macOS 安装包，已在路线图中。</p>
+          </details>
+          <details>
+            <summary>我的数据会上传吗？</summary>
+            <p>不会。Canify 完全本地运行：无云端、无遥测、无任何外联请求，总线数据只存在于本机内存。</p>
+          </details>
+          <details>
+            <summary>Linux 打开串口提示权限不足？</summary>
+            <p>将用户加入 <code>dialout</code>（Debian/Ubuntu）或 <code>uucp</code>（Arch）组后重新登录即可：<code>sudo usermod -aG dialout $USER</code></p>
+          </details>
+          <details>
+            <summary>开放源代码吗？</summary>
+            <p>Canify 是免费但闭源的软件，以二进制安装包发布。问题反馈与功能建议欢迎到 GitHub Issues 提出。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 路线图 -->
+    <section id="roadmap">
+      <div class="container">
+        <div class="section-head">
+          <h2>路线图</h2>
+        </div>
+        <ul class="roadmap">
+          <li>SocketCAN 驱动（Linux 原生 can0 接口）</li>
+          <li>CAN FD 支持（帧模型已预留）</li>
+          <li>更多日志格式（Vector .asc、PCAP、candump）</li>
+          <li>多通道同时连接</li>
+          <li>macOS 版本</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="left">© 2026 vaxowt · Canify</span>
+        <div class="right">
+          <a href="https://github.com/vaxowt/canify" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/vaxowt/canify/releases/latest" target="_blank" rel="noopener">下载</a>
+          <a href="https://github.com/vaxowt/canify/blob/main/LICENSE" target="_blank" rel="noopener">许可证</a>
+        </div>
+      </div>
+      <p class="disclaimer">Canify 为专有免费软件，按「现状」提供，不附带任何形式的担保。将本软件用于真实车辆、机械或工业设备时的风险由使用者自行承担。Canify 与此处提及的任何第三方产品均无隶属或背书关系。</p>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox"><img alt="" /></dialog>
+  <script src="./assets/main.js"></script>
+</body>
+</html>

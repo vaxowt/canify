@@ -1,0 +1,42 @@
+Canify — CAN Bus Analyzer
+Copyright (c) 2026 vaxowt. All rights reserved.
+
+This is a freeware license, not an open-source license. The software is
+distributed as binary releases only; the source code is not publicly
+available.
+
+1. Grant
+   Permission is granted, free of charge, to download, install and use the
+   binary releases of Canify ("the Software") on any number of machines you
+   own or control, for any lawful purpose, including commercial use.
+
+2. Redistribution prohibited
+   You may NOT redistribute, re-sell, sublicense, rent, lease, or otherwise
+   transfer the Software or any copy of it to any third party. You may not
+   host the installers outside the official GitHub Releases page. You may
+   link to the official download page instead.
+
+3. Reverse engineering
+   You may not reverse engineer, decompile, or disassemble the Software,
+   except to the extent permitted by applicable mandatory law.
+
+4. No modification
+   You may not modify the Software or create derivative works of it.
+
+5. No warranty
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+   Use of the Software with real vehicles, machinery, or industrial
+   equipment is entirely at your own risk.
+
+6. Limitation of liability
+   IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES
+   OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+   OTHER DEALINGS IN THE SOFTWARE.
+
+7. Third-party components
+   The Software is built upon excellent open-source components. Their
+   respective licenses are listed in the README and remain applicable to
+   those components.
