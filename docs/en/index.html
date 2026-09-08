@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +11,20 @@
   <meta property="og:url" content="https://vaxowt.github.io/canify/en/" />
   <meta property="og:image" content="https://vaxowt.github.io/canify/img/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+  <script>
+    // Pick the theme before first paint to avoid flashing: localStorage first, then system, default dark
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("canify-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") {
+        t = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
   <link rel="stylesheet" href="../assets/style.css" />
 </head>
@@ -30,9 +44,18 @@
       </nav>
       <div class="nav-right">
         <span class="lang-switch"><a href="../">中文</a> · <a class="current" href="./">EN</a></span>
-        <a class="btn btn-ghost" href="https://github.com/vaxowt/canify" target="_blank" rel="noopener">GitHub</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a class="btn btn-secondary" href="https://github.com/vaxowt/canify" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          GitHub
+        </a>
         <a class="btn btn-primary" href="#download">Free download</a>
-        <button class="nav-toggle" aria-label="Open menu">☰</button>
+        <button class="nav-toggle" type="button" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -42,60 +65,59 @@
     <section class="hero">
       <div class="container">
         <span class="hero-badge">Free to use · Fully local · Windows / Linux</span>
-        <h1>A modern, lightweight<br /><span class="accent">CAN / CANopen analyzer</span></h1>
-        <p class="lead">Plug in a $15 SLCAN adapter and get live bus monitoring, DBC signal decoding, real-time plotting, frame transmission, and full CANopen node debugging. One-click install — no Python, and all data stays on your machine.</p>
+        <h1>A modern, lightweight<br /><span class="grad">CAN / CANopen analyzer</span></h1>
+        <p class="lead">Plug in a <b>$15 SLCAN adapter</b> and get live bus monitoring, DBC signal decoding, real-time plotting, frame transmission, and full CANopen node debugging. One-click install — no Python, and <b>all data stays on your machine</b>.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#download">
-            <svg viewBox="0 0 24 24"><path d="M12 3v10m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Free download
-          </a>
-          <a class="btn btn-ghost btn-lg" href="https://github.com/vaxowt/canify/releases/latest" target="_blank" rel="noopener">View Releases</a>
+          <a class="btn btn-primary btn-lg" href="#download">Free download →</a>
+          <a class="btn btn-secondary btn-lg" href="https://github.com/vaxowt/canify/releases/latest" target="_blank" rel="noopener">View Releases <span class="ext">↗</span></a>
         </div>
         <p class="hero-meta">Windows 10/11 x64 · Linux x86_64 · installer / portable / AppImage</p>
         <div class="hero-shot">
           <div class="window">
             <div class="window-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="title">Canify — virtual bus demo</span></div>
-            <img src="../img/hero-dark.png" alt="Canify main window: live CAN frame table with expanded DBC decoded signals" />
+            <img class="theme-img img-dark" src="../img/hero-dark.png" alt="Canify main window (dark theme): live CAN frame table with expanded DBC decoded signals" />
+            <img class="theme-img img-light" src="../img/hero-light.png" alt="Canify main window (light theme): live CAN frame table with expanded DBC decoded signals" loading="lazy" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- Features -->
-    <section id="features" class="alt">
+    <section id="features" class="section">
       <div class="container">
         <div class="section-head">
+          <span class="kicker">Features</span>
           <h2>Built for efficient debugging</h2>
           <p>From bus monitoring to servo commissioning, Canify packs the everyday toolkit into one lightweight native app.</p>
         </div>
-        <div class="feature-grid">
-          <div class="feature">
-            <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="12" width="8" height="9" rx="2"/><rect x="3" y="15" width="8" height="6" rx="2"/></svg></div>
+        <div class="tile-grid">
+          <div class="tile">
+            <span class="arrow">↗</span>
             <h3>Dockable modern UI</h3>
             <p>Freely split and rearrange the display area and control dock; layouts are remembered. Dark / light themes and a Chinese / English UI, one click away.</p>
           </div>
-          <div class="feature">
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 19c2-8 5-12 8-12s6 4 8 12" stroke-linecap="round"/><path d="M3 21h18" stroke-linecap="round"/></svg></div>
+          <div class="tile">
+            <span class="arrow">↗</span>
             <h3>DBC decoding + live plotting</h3>
             <p>Import a DBC and expand physical signal values right in the frame table; tick signals to plot them — LTTB downsampling keeps busy buses smooth.</p>
           </div>
-          <div class="feature">
-            <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M5 5l2 2m10 10 2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
+          <div class="tile">
+            <span class="arrow">↗</span>
             <h3>CANopen, all in one place</h3>
             <p>Node table, SDO log, EMCY, object dictionary, PDO configuration, and CiA 402 drive control — passive decoding and active debugging together.</p>
           </div>
-          <div class="feature">
-            <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round"/></svg></div>
+          <div class="tile">
+            <span class="arrow">↗</span>
             <h3>Sequence record & replay</h3>
             <p>Record every frame the app sends (including SDO / NMT operations) and replay it with the original timing — reproducing issues has never been easier.</p>
           </div>
-          <div class="feature">
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 5h16M7 12h10m-7 7h4" stroke-linecap="round"/></svg></div>
+          <div class="tile">
+            <span class="arrow">↗</span>
             <h3>Powerful live filtering</h3>
             <p>Hex ID lists / ranges combined with data-byte conditions over AND / OR — lock onto the messages you care about in noisy traffic.</p>
           </div>
-          <div class="feature">
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" stroke-linejoin="round"/></svg></div>
+          <div class="tile">
+            <span class="arrow">↗</span>
             <h3>Lightweight · fully local</h3>
             <p>Built natively with Tauri 2 + Rust: small installers, fast startup — no cloud, no telemetry, no outbound requests.</p>
           </div>
@@ -104,9 +126,10 @@
     </section>
 
     <!-- CANopen spotlight -->
-    <section id="canopen">
+    <section id="canopen" class="section">
       <div class="container spotlight">
         <div>
+          <span class="kicker">CANopen</span>
           <h2>CANopen debugging,<br />all in one place</h2>
           <p class="desc">Whether you are passively observing an unknown bus or commissioning a CiA 402 servo drive, Canify puts the complete toolchain in a single panel.</p>
           <ul>
@@ -118,51 +141,53 @@
           </ul>
         </div>
         <div class="shot">
-          <img src="../img/canopen-nodes.png" alt="Canify's CANopen panel: node table, NMT control, SDO log and EMCY" />
+          <img src="../img/canopen-nodes.png" alt="Canify's CANopen panel: node table, NMT control, SDO log and EMCY" loading="lazy" />
         </div>
       </div>
     </section>
 
     <!-- Gallery -->
-    <section id="gallery" class="alt">
+    <section id="gallery" class="section">
       <div class="container">
         <div class="section-head">
+          <span class="kicker">Screenshots</span>
           <h2>A tour of the interface</h2>
           <p>Click any screenshot to zoom in.</p>
         </div>
         <div class="gallery">
           <figure>
-            <img src="../img/plot-measure.png" alt="Live plotting and crosshair measurement" />
-            <figcaption>Live plotting & crosshair measurement (Δt / Δv, sample snapping)</figcaption>
+            <img src="../img/plot-measure.png" alt="Live plotting and crosshair measurement" loading="lazy" />
+            <figcaption><span class="idx">01</span>Live plotting & crosshair measurement (Δt / Δv, sample snapping)</figcaption>
           </figure>
           <figure>
-            <img src="../img/canopen-402.png" alt="CiA 402 drive control" />
-            <figcaption>CiA 402 drive control (state machine + enable sequence + motion params)</figcaption>
+            <img src="../img/canopen-402.png" alt="CiA 402 drive control" loading="lazy" />
+            <figcaption><span class="idx">02</span>CiA 402 drive control (state machine + enable sequence + motion params)</figcaption>
           </figure>
           <figure>
-            <img src="../img/canopen-od.png" alt="EDS object dictionary browser" />
-            <figcaption>EDS object dictionary browser (read-all included)</figcaption>
+            <img src="../img/canopen-od.png" alt="EDS object dictionary browser" loading="lazy" />
+            <figcaption><span class="idx">03</span>EDS object dictionary browser (read-all included)</figcaption>
           </figure>
           <figure>
-            <img src="../img/canopen-pdo.png" alt="PDO configuration editor" />
-            <figcaption>PDO configuration editor (mappings + comm params + read-back)</figcaption>
+            <img src="../img/canopen-pdo.png" alt="PDO configuration editor" loading="lazy" />
+            <figcaption><span class="idx">04</span>PDO configuration editor (mappings + comm params + read-back)</figcaption>
           </figure>
           <figure>
-            <img src="../img/send-panel.png" alt="Multi-frame transmit panel" />
-            <figcaption>Multi-frame transmit (single / periodic send)</figcaption>
+            <img src="../img/send-panel.png" alt="Multi-frame transmit panel" loading="lazy" />
+            <figcaption><span class="idx">05</span>Multi-frame transmit (single / periodic send)</figcaption>
           </figure>
           <figure>
-            <img src="../img/sequence-replay.png" alt="Sequence record and replay" />
-            <figcaption>Sequence record & replay (re-sends with original timing)</figcaption>
+            <img src="../img/sequence-replay.png" alt="Sequence record and replay" loading="lazy" />
+            <figcaption><span class="idx">06</span>Sequence record & replay (re-sends with original timing)</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
     <!-- Hardware -->
-    <section id="hardware">
+    <section id="hardware" class="section">
       <div class="container">
         <div class="section-head">
+          <span class="kicker">Hardware</span>
           <h2>Supported hardware</h2>
           <p>Standard slcan protocol — the most common (and most affordable) class of CAN adapters works out of the box.</p>
         </div>
@@ -182,16 +207,17 @@
     </section>
 
     <!-- Download -->
-    <section id="download" class="alt">
+    <section id="download" class="section">
       <div class="container">
         <div class="section-head">
+          <span class="kicker">Download</span>
           <h2>Free download</h2>
           <p>No registration, no feature limits, no ads. All installers are published on GitHub Releases.</p>
         </div>
         <div class="dl-grid">
           <div class="dl-card">
             <span class="os">
-              <svg viewBox="0 0 24 24"><path d="M3 5.5 10.5 4.4v6.9H3V5.5zm0 13 7.5 1.1v-6.8H3v5.7zm8.7 1.2L21 21V12.7h-9.3v7zM11.7 3v7.3H21V3l-9.3 1.3v1.7z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v6.9H3V5.5zm0 13 7.5 1.1v-6.8H3v5.7zm8.7 1.2L21 21V12.7h-9.3v7zM11.7 3v7.3H21V3l-9.3 1.3v1.7z"/></svg>
               Windows 10/11 x64
             </span>
             <span class="files">Installer <code>x64-setup.exe</code> · Portable <code>x64Portable.zip</code></span>
@@ -200,7 +226,7 @@
           </div>
           <div class="dl-card">
             <span class="os">
-              <svg viewBox="0 0 24 24"><path d="M12 2c.6 2 .1 3.4-.8 4.6-.9 1.1-2.2 2-2.9 3.5-.8 1.6-.5 3.1.2 4.4-.9.5-1.6 1.4-2 2.6-.5 1.7.1 3.3 1 4.9h.9c-.4-1-.5-1.7-.3-2.4.2-.8.7-1.3 1.5-1.7.6 1 1.5 1.8 2.7 2.4l.4.7h.9l.3-.7c1.2-.5 2.2-1.3 2.9-2.3.9.4 1.4 1 1.6 1.7.2.7.1 1.5-.3 2.3h.9c1-1.6 1.5-3.2 1-4.9-.3-1.2-1-2.1-2-2.6.8-1.3 1-2.9.2-4.4-.7-1.5-2-2.4-2.9-3.5-.9-1.2-1.4-2.6-.8-4.6h-1zm.5 3.7c.4 1.1 1 2 1.8 2.9-1.4-.4-2.7-.4-4.1-.1.8-.9 1.6-1.8 2-2.8h.3z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c.6 2 .1 3.4-.8 4.6-.9 1.1-2.2 2-2.9 3.5-.8 1.6-.5 3.1.2 4.4-.9.5-1.6 1.4-2 2.6-.5 1.7.1 3.3 1 4.9h.9c-.4-1-.5-1.7-.3-2.4.2-.8.7-1.3 1.5-1.7.6 1 1.5 1.8 2.7 2.4l.4.7h.9l.3-.7c1.2-.5 2.2-1.3 2.9-2.3.9.4 1.4 1 1.6 1.7.2.7.1 1.5-.3 2.3h.9c1-1.6 1.5-3.2 1-4.9-.3-1.2-1-2.1-2-2.6.8-1.3 1-2.9.2-4.4-.7-1.5-2-2.4-2.9-3.5-.9-1.2-1.4-2.6-.8-4.6h-1zm.5 3.7c.4 1.1 1 2 1.8 2.9-1.4-.4-2.7-.4-4.1-.1.8-.9 1.6-1.8 2-2.8h.3z"/></svg>
               Linux x86_64
             </span>
             <span class="files"><code>.deb</code> · <code>.rpm</code> · <code>.AppImage</code> (no FUSE2 required)</span>
@@ -213,9 +239,10 @@
     </section>
 
     <!-- Comparison -->
-    <section id="compare">
+    <section id="compare" class="section">
       <div class="container">
         <div class="section-head">
+          <span class="kicker">Comparison</span>
           <h2>How it compares</h2>
           <p>Every tool has its own focus — here are the facts only.</p>
         </div>
@@ -269,9 +296,10 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="alt">
+    <section id="faq" class="section">
       <div class="container">
         <div class="section-head">
+          <span class="kicker">FAQ</span>
           <h2>FAQ</h2>
         </div>
         <div class="faq">
@@ -304,17 +332,18 @@
     </section>
 
     <!-- Roadmap -->
-    <section id="roadmap">
+    <section id="roadmap" class="section">
       <div class="container">
         <div class="section-head">
+          <span class="kicker">Roadmap</span>
           <h2>Roadmap</h2>
         </div>
         <ul class="roadmap">
-          <li>SocketCAN driver (native Linux can0)</li>
-          <li>CAN FD support (frame model already reserved)</li>
-          <li>More log formats (Vector .asc, PCAP, candump)</li>
-          <li>Multi-channel connections</li>
-          <li>macOS build</li>
+          <li><span class="idx">01</span>SocketCAN driver (native Linux can0)</li>
+          <li><span class="idx">02</span>CAN FD support (frame model already reserved)</li>
+          <li><span class="idx">03</span>More log formats (Vector .asc, PCAP, candump)</li>
+          <li><span class="idx">04</span>Multi-channel connections</li>
+          <li><span class="idx">05</span>macOS build</li>
         </ul>
       </div>
     </section>
@@ -323,7 +352,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
-        <span class="left">© 2026 vaxowt · Canify</span>
+        <span class="left"><img src="../img/logo.svg" alt="" />© 2026 vaxowt · Canify</span>
         <div class="right">
           <a href="https://github.com/vaxowt/canify" target="_blank" rel="noopener">GitHub</a>
           <a href="https://github.com/vaxowt/canify/releases/latest" target="_blank" rel="noopener">Download</a>
@@ -334,7 +363,7 @@
     </div>
   </footer>
 
-  <dialog class="lightbox" id="lightbox"><img alt="" /></dialog>
+  <dialog class="lightbox" id="lightbox"><div class="lightbox-body"><img alt="" /></div></dialog>
   <script src="../assets/main.js"></script>
 </body>
 </html>

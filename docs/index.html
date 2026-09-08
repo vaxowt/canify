@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +11,20 @@
   <meta property="og:url" content="https://vaxowt.github.io/canify/" />
   <meta property="og:image" content="https://vaxowt.github.io/canify/img/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+  <script>
+    // 首帧前确定主题，避免闪烁：localStorage 优先，其次跟随系统，默认深色
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("canify-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") {
+        t = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
   <link rel="stylesheet" href="./assets/style.css" />
 </head>
@@ -30,9 +44,18 @@
       </nav>
       <div class="nav-right">
         <span class="lang-switch"><a class="current" href="./">中文</a> · <a href="./en/">EN</a></span>
-        <a class="btn btn-ghost" href="https://github.com/vaxowt/canify" target="_blank" rel="noopener">GitHub</a>
+        <button class="theme-toggle" type="button" aria-label="切换主题" title="切换主题">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a class="btn btn-secondary" href="https://github.com/vaxowt/canify" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          GitHub
+        </a>
         <a class="btn btn-primary" href="#download">免费下载</a>
-        <button class="nav-toggle" aria-label="打开菜单">☰</button>
+        <button class="nav-toggle" type="button" aria-label="打开菜单">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -42,60 +65,59 @@
     <section class="hero">
       <div class="container">
         <span class="hero-badge">免费使用 · 纯本地运行 · Windows / Linux</span>
-        <h1>现代、轻量的<br /><span class="accent">CAN / CANopen 上位机</span></h1>
-        <p class="lead">连接一块十几块钱的 SLCAN 适配器，即可完成总线监控、DBC 信号解码、实时绘图、报文发送与 CANopen 节点调试。安装即用，无需 Python，数据只留在本机。</p>
+        <h1>现代、轻量的<br /><span class="grad">CAN / CANopen 上位机</span></h1>
+        <p class="lead">连接一块<b>十几块钱的 SLCAN 适配器</b>，即可完成总线监控、DBC 信号解码、实时绘图、报文发送与 CANopen 节点调试。安装即用，无需 Python，<b>数据只留在本机</b>。</p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#download">
-            <svg viewBox="0 0 24 24"><path d="M12 3v10m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            免费下载
-          </a>
-          <a class="btn btn-ghost btn-lg" href="https://github.com/vaxowt/canify/releases/latest" target="_blank" rel="noopener">查看 Releases</a>
+          <a class="btn btn-primary btn-lg" href="#download">免费下载 →</a>
+          <a class="btn btn-secondary btn-lg" href="https://github.com/vaxowt/canify/releases/latest" target="_blank" rel="noopener">查看 Releases <span class="ext">↗</span></a>
         </div>
         <p class="hero-meta">Windows 10/11 x64 · Linux x86_64 · 安装包 / 免安装版 / AppImage</p>
         <div class="hero-shot">
           <div class="window">
             <div class="window-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="title">Canify — 虚拟总线演示</span></div>
-            <img src="./img/hero-dark.png" alt="Canify 主界面：帧表实时显示 CAN 报文并展开 DBC 解码信号" />
+            <img class="theme-img img-dark" src="./img/hero-dark.png" alt="Canify 主界面（深色主题）：帧表实时显示 CAN 报文并展开 DBC 解码信号" />
+            <img class="theme-img img-light" src="./img/hero-light.png" alt="Canify 主界面（浅色主题）：帧表实时显示 CAN 报文并展开 DBC 解码信号" loading="lazy" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- 特性 -->
-    <section id="features" class="alt">
+    <section id="features" class="section">
       <div class="container">
         <div class="section-head">
+          <span class="kicker">Features</span>
           <h2>为高效调试而生</h2>
           <p>从总线监控到伺服调试，Canify 把常用工具装进一个轻量原生应用。</p>
         </div>
-        <div class="feature-grid">
-          <div class="feature">
-            <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="12" width="8" height="9" rx="2"/><rect x="3" y="15" width="8" height="6" rx="2"/></svg></div>
+        <div class="tile-grid">
+          <div class="tile">
+            <span class="arrow">↗</span>
             <h3>可停靠的现代界面</h3>
             <p>显示区与控制区自由分屏、拖拽重组，布局自动记忆；深色 / 浅色主题与中英界面一键切换。</p>
           </div>
-          <div class="feature">
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 19c2-8 5-12 8-12s6 4 8 12" stroke-linecap="round"/><path d="M3 21h18" stroke-linecap="round"/></svg></div>
+          <div class="tile">
+            <span class="arrow">↗</span>
             <h3>DBC 解码 + 实时绘图</h3>
             <p>导入 DBC 后帧表内直接展开物理值信号；勾选即绘图，LTTB 降采样让高负载总线依旧流畅。</p>
           </div>
-          <div class="feature">
-            <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M5 5l2 2m10 10 2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
+          <div class="tile">
+            <span class="arrow">↗</span>
             <h3>CANopen 一站式</h3>
             <p>节点表、SDO 日志、EMCY、对象字典、PDO 配置、CiA 402 伺服控制——被动解码与主动调试一体。</p>
           </div>
-          <div class="feature">
-            <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round"/></svg></div>
+          <div class="tile">
+            <span class="arrow">↗</span>
             <h3>序列录制与回放</h3>
             <p>录制应用内发出的所有帧（含 SDO / NMT 操作），按原时序回放，复现问题或自动化测试从未这么简单。</p>
           </div>
-          <div class="feature">
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 5h16M7 12h10m-7 7h4" stroke-linecap="round"/></svg></div>
+          <div class="tile">
+            <span class="arrow">↗</span>
             <h3>强大的实时过滤</h3>
             <p>ID 列表 / 区间与数据字节条件多路组合（AND / OR），在嘈杂总线中一眼锁定目标报文。</p>
           </div>
-          <div class="feature">
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" stroke-linejoin="round"/></svg></div>
+          <div class="tile">
+            <span class="arrow">↗</span>
             <h3>轻量 · 纯本地</h3>
             <p>Tauri 2 + Rust 原生构建，安装包小、启动快；无云端、无遥测、无外联请求。</p>
           </div>
@@ -104,10 +126,11 @@
     </section>
 
     <!-- CANopen 专题 -->
-    <section id="canopen">
+    <section id="canopen" class="section">
       <div class="container spotlight">
         <div>
-          <h2>CANopen 调试<br />在这里一站式完成</h2>
+          <span class="kicker">CANopen</span>
+          <h2>CANopen 调试，<br />在这里一站式完成</h2>
           <p class="desc">无论是接入一条陌生总线做被动观察，还是调试一台 CiA 402 伺服驱动器，Canify 都把完整工具链放在同一个面板里。</p>
           <ul>
             <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>节点表自动识别：NMT 状态、心跳间隔一目了然</li>
@@ -118,51 +141,53 @@
           </ul>
         </div>
         <div class="shot">
-          <img src="./img/canopen-nodes.png" alt="Canify 的 CANopen 面板：节点表、NMT 控制、SDO 日志与 EMCY" />
+          <img src="./img/canopen-nodes.png" alt="Canify 的 CANopen 面板：节点表、NMT 控制、SDO 日志与 EMCY" loading="lazy" />
         </div>
       </div>
     </section>
 
     <!-- 截图画廊 -->
-    <section id="gallery" class="alt">
+    <section id="gallery" class="section">
       <div class="container">
         <div class="section-head">
+          <span class="kicker">Screenshots</span>
           <h2>界面一览</h2>
           <p>点击任意截图可放大查看。</p>
         </div>
         <div class="gallery">
           <figure>
-            <img src="./img/plot-measure.png" alt="实时绘图与十字测量" />
-            <figcaption>实时绘图与十字测量（Δt / Δv、样本吸附）</figcaption>
+            <img src="./img/plot-measure.png" alt="实时绘图与十字测量" loading="lazy" />
+            <figcaption><span class="idx">01</span>实时绘图与十字测量（Δt / Δv、样本吸附）</figcaption>
           </figure>
           <figure>
-            <img src="./img/canopen-402.png" alt="CiA 402 伺服控制" />
-            <figcaption>CiA 402 伺服控制（状态机 + 使能序列 + 运动参数）</figcaption>
+            <img src="./img/canopen-402.png" alt="CiA 402 伺服控制" loading="lazy" />
+            <figcaption><span class="idx">02</span>CiA 402 伺服控制（状态机 + 使能序列 + 运动参数）</figcaption>
           </figure>
           <figure>
-            <img src="./img/canopen-od.png" alt="EDS 对象字典浏览器" />
-            <figcaption>EDS 对象字典浏览器（一键读取全部）</figcaption>
+            <img src="./img/canopen-od.png" alt="EDS 对象字典浏览器" loading="lazy" />
+            <figcaption><span class="idx">03</span>EDS 对象字典浏览器（一键读取全部）</figcaption>
           </figure>
           <figure>
-            <img src="./img/canopen-pdo.png" alt="PDO 配置编辑器" />
-            <figcaption>PDO 配置编辑器（映射 + 通信参数 + 读回）</figcaption>
+            <img src="./img/canopen-pdo.png" alt="PDO 配置编辑器" loading="lazy" />
+            <figcaption><span class="idx">04</span>PDO 配置编辑器（映射 + 通信参数 + 读回）</figcaption>
           </figure>
           <figure>
-            <img src="./img/send-panel.png" alt="多帧发送面板" />
-            <figcaption>多帧发送（单发 / 周期发送）</figcaption>
+            <img src="./img/send-panel.png" alt="多帧发送面板" loading="lazy" />
+            <figcaption><span class="idx">05</span>多帧发送（单发 / 周期发送）</figcaption>
           </figure>
           <figure>
-            <img src="./img/sequence-replay.png" alt="序列录制与回放" />
-            <figcaption>序列录制与回放（按原时序重发）</figcaption>
+            <img src="./img/sequence-replay.png" alt="序列录制与回放" loading="lazy" />
+            <figcaption><span class="idx">06</span>序列录制与回放（按原时序重发）</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
     <!-- 支持硬件 -->
-    <section id="hardware">
+    <section id="hardware" class="section">
       <div class="container">
         <div class="section-head">
+          <span class="kicker">Hardware</span>
           <h2>支持的硬件</h2>
           <p>标准 slcan 协议，市面上最常见、最便宜的一类 CAN 适配器开箱即用。</p>
         </div>
@@ -182,16 +207,17 @@
     </section>
 
     <!-- 下载 -->
-    <section id="download" class="alt">
+    <section id="download" class="section">
       <div class="container">
         <div class="section-head">
+          <span class="kicker">Download</span>
           <h2>免费下载</h2>
           <p>无需注册、无功能限制、无广告。所有安装包均发布于 GitHub Releases。</p>
         </div>
         <div class="dl-grid">
           <div class="dl-card">
             <span class="os">
-              <svg viewBox="0 0 24 24"><path d="M3 5.5 10.5 4.4v6.9H3V5.5zm0 13 7.5 1.1v-6.8H3v5.7zm8.7 1.2L21 21V12.7h-9.3v7zM11.7 3v7.3H21V3l-9.3 1.3v1.7z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v6.9H3V5.5zm0 13 7.5 1.1v-6.8H3v5.7zm8.7 1.2L21 21V12.7h-9.3v7zM11.7 3v7.3H21V3l-9.3 1.3v1.7z"/></svg>
               Windows 10/11 x64
             </span>
             <span class="files">安装版 <code>x64-setup.exe</code> · 免安装绿色版 <code>x64Portable.zip</code></span>
@@ -200,7 +226,7 @@
           </div>
           <div class="dl-card">
             <span class="os">
-              <svg viewBox="0 0 24 24"><path d="M12 2c.6 2 .1 3.4-.8 4.6-.9 1.1-2.2 2-2.9 3.5-.8 1.6-.5 3.1.2 4.4-.9.5-1.6 1.4-2 2.6-.5 1.7.1 3.3 1 4.9h.9c-.4-1-.5-1.7-.3-2.4.2-.8.7-1.3 1.5-1.7.6 1 1.5 1.8 2.7 2.4l.4.7h.9l.3-.7c1.2-.5 2.2-1.3 2.9-2.3.9.4 1.4 1 1.6 1.7.2.7.1 1.5-.3 2.3h.9c1-1.6 1.5-3.2 1-4.9-.3-1.2-1-2.1-2-2.6.8-1.3 1-2.9.2-4.4-.7-1.5-2-2.4-2.9-3.5-.9-1.2-1.4-2.6-.8-4.6h-1zm.5 3.7c.4 1.1 1 2 1.8 2.9-1.4-.4-2.7-.4-4.1-.1.8-.9 1.6-1.8 2-2.8h.3z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c.6 2 .1 3.4-.8 4.6-.9 1.1-2.2 2-2.9 3.5-.8 1.6-.5 3.1.2 4.4-.9.5-1.6 1.4-2 2.6-.5 1.7.1 3.3 1 4.9h.9c-.4-1-.5-1.7-.3-2.4.2-.8.7-1.3 1.5-1.7.6 1 1.5 1.8 2.7 2.4l.4.7h.9l.3-.7c1.2-.5 2.2-1.3 2.9-2.3.9.4 1.4 1 1.6 1.7.2.7.1 1.5-.3 2.3h.9c1-1.6 1.5-3.2 1-4.9-.3-1.2-1-2.1-2-2.6.8-1.3 1-2.9.2-4.4-.7-1.5-2-2.4-2.9-3.5-.9-1.2-1.4-2.6-.8-4.6h-1zm.5 3.7c.4 1.1 1 2 1.8 2.9-1.4-.4-2.7-.4-4.1-.1.8-.9 1.6-1.8 2-2.8h.3z"/></svg>
               Linux x86_64
             </span>
             <span class="files"><code>.deb</code> · <code>.rpm</code> · <code>.AppImage</code>（无需 FUSE2）</span>
@@ -213,9 +239,10 @@
     </section>
 
     <!-- 对比 -->
-    <section id="compare">
+    <section id="compare" class="section">
       <div class="container">
         <div class="section-head">
+          <span class="kicker">Comparison</span>
           <h2>与同类工具相比</h2>
           <p>每个工具都有自己的定位，这里只陈述事实。</p>
         </div>
@@ -269,9 +296,10 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="alt">
+    <section id="faq" class="section">
       <div class="container">
         <div class="section-head">
+          <span class="kicker">FAQ</span>
           <h2>常见问题</h2>
         </div>
         <div class="faq">
@@ -304,17 +332,18 @@
     </section>
 
     <!-- 路线图 -->
-    <section id="roadmap">
+    <section id="roadmap" class="section">
       <div class="container">
         <div class="section-head">
+          <span class="kicker">Roadmap</span>
           <h2>路线图</h2>
         </div>
         <ul class="roadmap">
-          <li>SocketCAN 驱动（Linux 原生 can0 接口）</li>
-          <li>CAN FD 支持（帧模型已预留）</li>
-          <li>更多日志格式（Vector .asc、PCAP、candump）</li>
-          <li>多通道同时连接</li>
-          <li>macOS 版本</li>
+          <li><span class="idx">01</span>SocketCAN 驱动（Linux 原生 can0 接口）</li>
+          <li><span class="idx">02</span>CAN FD 支持（帧模型已预留）</li>
+          <li><span class="idx">03</span>更多日志格式（Vector .asc、PCAP、candump）</li>
+          <li><span class="idx">04</span>多通道同时连接</li>
+          <li><span class="idx">05</span>macOS 版本</li>
         </ul>
       </div>
     </section>
@@ -323,7 +352,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
-        <span class="left">© 2026 vaxowt · Canify</span>
+        <span class="left"><img src="./img/logo.svg" alt="" />© 2026 vaxowt · Canify</span>
         <div class="right">
           <a href="https://github.com/vaxowt/canify" target="_blank" rel="noopener">GitHub</a>
           <a href="https://github.com/vaxowt/canify/releases/latest" target="_blank" rel="noopener">下载</a>
@@ -334,7 +363,7 @@
     </div>
   </footer>
 
-  <dialog class="lightbox" id="lightbox"><img alt="" /></dialog>
+  <dialog class="lightbox" id="lightbox"><div class="lightbox-body"><img alt="" /></div></dialog>
   <script src="./assets/main.js"></script>
 </body>
 </html>
