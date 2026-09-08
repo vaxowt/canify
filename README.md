@@ -18,7 +18,7 @@
 
 ---
 
-Canify 是一款运行在桌面端的 CAN 总线分析仪：连接一块十几块钱的 SLCAN 适配器，即可完成总线监控、DBC 信号解码、实时绘图、报文发送与 CANopen 节点调试。安装即用，无需 Python、无需运行环境，所有数据只留在本机。
+Canify 是一款运行在桌面端的 CAN 总线分析仪：连接一块十几块钱的 SLCAN 适配器，即可完成总线监控、DBC 信号解码、实时绘图、报文发送与 CANopen 节点调试。安装即用，无需运行环境，所有数据只留在本机。
 
 ![Canify 主界面](docs/img/hero-dark.png)
 
@@ -63,7 +63,7 @@ Canify 是一款运行在桌面端的 CAN 总线分析仪：连接一块十几�
 | 平台 | 文件 | 说明 |
 |---|---|---|
 | Windows 10/11 x64 | `canify_<版本>_x64-setup.exe` | 安装版 |
-| Windows 10/11 x64 | `canify_<版本>_x64Portable.zip` | 免安装绿色版 |
+| Windows 10/11 x64 | `canify_<版本>_x64-portable.zip` | 免安装绿色版 |
 | Debian / Ubuntu | `canify_<版本>_amd64.deb` | `sudo dpkg -i canify_*.deb` |
 | Fedora / RHEL | `canify-<版本>-1.x86_64.rpm` | `sudo rpm -i canify-*.rpm` |
 | 通用 Linux | `canify_<版本>_amd64.AppImage` | 直接运行，无需 FUSE2 |
@@ -125,7 +125,7 @@ Canify 是一款运行在桌面端的 CAN 总线分析仪：连接一块十几�
 ## ❓ FAQ
 
 **Canify 收费吗？**
-免费使用，无需注册、无功能限制、无广告。
+免费使用，无需注册、无功能限制。
 
 **支持 CAN FD 吗？**
 暂不支持经典 CAN FD 帧的收发，已在路线图中。当前帧数据模型为 CAN FD 预留了载荷长度。

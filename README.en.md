@@ -18,7 +18,7 @@
 
 ---
 
-Canify is a desktop CAN bus analyzer: plug in a $15 SLCAN adapter and you get live bus monitoring, DBC signal decoding, real-time plotting, frame transmission, and full CANopen node debugging. One-click install — no Python, no runtime dependencies, and all data stays on your machine.
+Canify is a desktop CAN bus analyzer: plug in a $15 SLCAN adapter and you get live bus monitoring, DBC signal decoding, real-time plotting, frame transmission, and full CANopen node debugging. One-click install — no runtime dependencies, and all data stays on your machine.
 
 ![Canify main window](docs/img/hero-dark.png)
 
@@ -63,7 +63,7 @@ Grab the installer for your platform from [**Releases**](https://github.com/vaxo
 | Platform | File | Notes |
 |---|---|---|
 | Windows 10/11 x64 | `canify_<version>_x64-setup.exe` | Installer |
-| Windows 10/11 x64 | `canify_<version>_x64Portable.zip` | Portable, no install |
+| Windows 10/11 x64 | `canify_<version>_x64-portable.zip` | Portable, no install |
 | Debian / Ubuntu | `canify_<version>_amd64.deb` | `sudo dpkg -i canify_*.deb` |
 | Fedora / RHEL | `canify-<version>-1.x86_64.rpm` | `sudo rpm -i canify-*.rpm` |
 | Any Linux | `canify_<version>_amd64.AppImage` | Runs directly, no FUSE2 required |
@@ -125,7 +125,7 @@ Grab the installer for your platform from [**Releases**](https://github.com/vaxo
 ## ❓ FAQ
 
 **Is Canify free?**
-Yes — free to use, no registration, no feature limits, no ads.
+Yes — free to use, no registration, no feature limits.
 
 **Does it support CAN FD?**
 Not yet; CAN FD is on the roadmap. The current frame data model already reserves payload length for FD.
