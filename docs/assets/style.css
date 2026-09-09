@@ -334,6 +334,9 @@ main > .section + .section { border-top: 1px solid var(--border); }
 .dl-all { max-width: 860px; margin: 24px auto 0; text-align: center; font-size: 14px; color: var(--fg-2); }
 .dl-all a { color: var(--accent); }
 .dl-all a:hover { text-decoration: underline; }
+.dl-card .dl-links { font-size: 13px; color: var(--fg-2); }
+.dl-card .dl-links a { color: var(--accent); margin: 0 5px; }
+.dl-card .dl-links a:hover { text-decoration: underline; }
 
 /* ---------- 对比表 ---------- */
 .compare-wrap { border: 1px solid var(--border); border-radius: var(--radius); overflow-x: auto; }

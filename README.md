@@ -63,10 +63,11 @@ Canify 是一款运行在桌面端的 CAN 总线分析仪：连接一块十几�
 | 平台 | 文件 | 说明 |
 |---|---|---|
 | Windows 10/11 x64 | `canify_<版本>_x64-setup.exe` | 安装版 |
-| Windows 10/11 x64 | `canify_<版本>_x64-portable.zip` | 免安装绿色版 |
+| Windows 10/11 x64 | `canify_<版本>_windows-x64-portable.zip` | 免安装绿色版 |
 | Debian / Ubuntu | `canify_<版本>_amd64.deb` | `sudo dpkg -i canify_*.deb` |
 | Fedora / RHEL | `canify-<版本>-1.x86_64.rpm` | `sudo rpm -i canify-*.rpm` |
 | 通用 Linux | `canify_<版本>_amd64.AppImage` | 直接运行，无需 FUSE2 |
+| 通用 Linux | `canify_<版本>_linux-x64-portable.zip` | 解压即用（需系统已安装 WebKitGTK 运行时） |
 
 > Windows 版依赖 WebView2 运行时（Win10/11 一般自带）；缺失时安装器会引导联网安装。
 >
