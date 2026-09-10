@@ -62,12 +62,12 @@ Grab the installer for your platform from [**Releases**](https://github.com/vaxo
 
 | Platform | File | Notes |
 |---|---|---|
-| Windows 10/11 x64 | `canify_<version>_x64-setup.exe` | Installer |
-| Windows 10/11 x64 | `canify_<version>_windows-x64-portable.zip` | Portable, no install |
-| Debian / Ubuntu | `canify_<version>_amd64.deb` | `sudo dpkg -i canify_*.deb` |
-| Fedora / RHEL | `canify-<version>-1.x86_64.rpm` | `sudo rpm -i canify-*.rpm` |
-| Any Linux | `canify_<version>_amd64.AppImage` | Runs directly, no FUSE2 required |
-| Any Linux | `canify_<version>_linux-x64-portable.zip` | Portable; requires system WebKitGTK |
+| Windows 10/11 x64 | `canify_windows-x64-setup.exe` | Installer |
+| Windows 10/11 x64 | `canify_windows-x64-portable.zip` | Portable, no install |
+| Debian / Ubuntu | `canify-amd64.deb` | `sudo dpkg -i canify-amd64.deb` |
+| Fedora / RHEL | `canify-x86_64.rpm` | `sudo rpm -i canify-x86_64.rpm` |
+| Any Linux | `canify-amd64.AppImage` | Runs directly, no FUSE2 required |
+| Any Linux | `canify_linux-x64-portable.zip` | Portable; requires system WebKitGTK |
 
 > The Windows build relies on the WebView2 runtime (bundled with Windows 10/11 by default); if missing, the installer will guide you through an online install.
 >

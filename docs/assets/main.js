@@ -73,42 +73,5 @@
     });
   }
 
-  // 下载直链：拉取 GitHub 最新 Release，把带 data-asset 的链接指向对应资产的直链；
-  // 失败或未命中时保留原链接（Releases 页），可选格式列表保持隐藏。无外部依赖。
-  var DL_API = "https://api.github.com/repos/vaxowt/canify/releases/latest";
-  var DL_ASSETS = {
-    "win-setup": /canify_.*_x64-setup\.exe$/i,
-    "win-portable": /canify_.*_windows-x64-portable\.zip$/i,
-    "linux-appimage": /canify_.*_amd64\.AppImage$/i,
-    "linux-deb": /canify_.*_amd64\.deb$/i,
-    "linux-rpm": /canify-.*-1\.x86_64\.rpm$/i,
-    "linux-portable": /canify_.*_linux-x64-portable\.zip$/i
-  };
-  var dlEls = document.querySelectorAll("[data-asset]");
-  if (dlEls.length) {
-    fetch(DL_API, { headers: { Accept: "application/vnd.github+json" } })
-      .then(function (res) { if (!res.ok) throw new Error(res.status); return res.json(); })
-      .then(function (rel) {
-        if (!rel || !rel.assets) return;
-        var found = {};
-        rel.assets.forEach(function (a) {
-          Object.keys(DL_ASSETS).forEach(function (key) {
-            if (!found[key] && DL_ASSETS[key].test(a.name)) found[key] = a.browser_download_url;
-          });
-        });
-        var hit = 0;
-        dlEls.forEach(function (el) {
-          var url = found[el.dataset.asset];
-          if (!url) return;
-          el.href = url;
-          el.setAttribute("target", "_blank");
-          el.setAttribute("rel", "noopener");
-          hit++;
-        });
-        if (hit) {
-          document.querySelectorAll("[data-dlgroup]").forEach(function (g) { g.hidden = false; });
-        }
-      })
-      .catch(function () { /* 保持 Releases 页链接 */ });
-  }
+  // 下载按钮为静态 latest/download 直链（固定名资产，永不失效），无需 JS 处理。
 })();
